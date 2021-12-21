@@ -187,6 +187,28 @@ namespace BinarySearchTree
             }
             return node;
         }
+        
+        public void PrintLeafNodes(Node root)
+        {
+            if (root == null)
+                return;
+
+            if (root.left == null && root.right == null)
+            {
+                Console.WriteLine(root.data);
+                return;
+            }
+
+            if (root.left != null)
+            {
+                PrintLeafNodes(root.left);
+            }
+
+            if (root.right != null)
+            {
+                PrintLeafNodes(root.right);
+            }
+        }
     }
 
     class Program
@@ -206,6 +228,7 @@ namespace BinarySearchTree
             bst.Remove(90);
             bst.Remove(48);
             bst.Remove(10);
+            bst.PrintLeafNodes(bst.root);
 
             Console.Read();
         }
